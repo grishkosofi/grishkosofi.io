@@ -1,16 +1,63 @@
-# React + Vite
+# Sofiia Grishko Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern personal developer portfolio for **Sofiia Grishko**, a Software Engineering student in Potsdam, Germany. The site presents skills, projects, education, current technical focus, and contact information for software engineering opportunities.
 
-Currently, two official plugins are available:
+## Technology Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- JavaScript
+- CSS
+- Lucide React (icons)
+- GitHub Actions (GitHub Pages deployment)
 
-## React Compiler
+## Local Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the Oxlint configuration
+## Run in Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm run dev
+```
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Deployment
+
+The repository includes a GitHub Actions workflow at:
+
+`/.github/workflows/deploy.yml`
+
+On every push to `main`, it:
+
+1. Installs dependencies
+2. Builds the Vite app
+3. Uploads the `dist` artifact
+4. Deploys to GitHub Pages
+
+Target production URL:
+
+`https://grishkosofi.github.io`
+
+## Content Configuration
+
+Update portfolio content from centralized files:
+
+- Personal/profile details: `src/config/personal.js`
+- Skills: `src/data/skills.js`
+- Projects: `src/data/projects.js`
+
+TODO placeholders are intentionally included in config/data files where personal URLs or contact values were not provided.
