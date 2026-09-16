@@ -13,6 +13,8 @@ A modern personal developer portfolio for **Sofiia Grishko**, a Software Enginee
 
 ## Local Installation
 
+Node.js requirement: `^20.19.0 || >=22.12.0`
+
 ```bash
 npm install
 ```
@@ -41,6 +43,8 @@ The repository includes a GitHub Actions workflow at:
 
 `/.github/workflows/deploy.yml`
 
+Also ensure GitHub Pages is enabled in repository settings and configured to deploy from **GitHub Actions**.
+
 On every push to `main`, it:
 
 1. Installs dependencies
@@ -51,6 +55,15 @@ On every push to `main`, it:
 Target production URL:
 
 `https://grishkosofi.github.io`
+
+### Vite base path
+
+The Vite `base` value is controlled by `VITE_BASE_PATH` (see `vite.config.js`).
+
+- For a root domain deployment (user/organization site), use: `/`
+- For a project-path deployment, use: `/<repository-name>/`
+
+The GitHub Actions workflow currently sets `VITE_BASE_PATH=/` for deployment to `grishkosofi.github.io`.
 
 ## Content Configuration
 

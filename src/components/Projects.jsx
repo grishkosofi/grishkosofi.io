@@ -14,7 +14,13 @@ function Projects() {
           ))}
         </div>
 
-        <a className='button button-primary projects-cta' href={projectsSection.githubProfile} target='_blank' rel='noreferrer'>
+        <a
+          className='button button-primary projects-cta'
+          href={projectsSection.githubProfile}
+          target='_blank'
+          rel='noreferrer'
+          aria-label='View all projects on GitHub (opens in a new tab)'
+        >
           View all projects on GitHub
         </a>
       </div>

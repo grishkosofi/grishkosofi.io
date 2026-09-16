@@ -10,20 +10,18 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import './styles/global.css'
 
-const getInitialTheme = () => {
-  const storedTheme = localStorage.getItem('theme')
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    return storedTheme
-  }
-  return 'dark'
-}
-
 function App() {
-  const [theme, setTheme] = useState(getInitialTheme)
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'dark'
+    }
+    const storedTheme = window.localStorage.getItem('theme')
+    return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'dark'
+  })
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
+    window.localStorage.setItem('theme', theme)
   }, [theme])
 
   useEffect(() => {

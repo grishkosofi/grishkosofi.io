@@ -183,6 +183,7 @@ h3 {
 
 .hero {
   padding-top: 6rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .hero-grid {
@@ -259,6 +260,11 @@ h3 {
 
 .button-ghost {
   background: transparent;
+}
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .hero-visual {
@@ -557,6 +563,11 @@ h3 {
     padding: 0;
     display: grid;
     gap: 0.8rem;
+  }
+
+  .mobile-nav-list a {
+    display: block;
+    padding: 0.4rem 0;
   }
 
   .hero {

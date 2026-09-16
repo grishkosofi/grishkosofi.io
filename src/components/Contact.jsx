@@ -12,11 +12,23 @@ function Contact() {
         </p>
 
         <div className='contact-links'>
-          <a className='button button-secondary' href={links.github} target='_blank' rel='noreferrer'>
+          <a
+            className='button button-secondary'
+            href={links.github}
+            target='_blank'
+            rel='noreferrer'
+            aria-label='GitHub profile (opens in a new tab)'
+          >
             GitHub
           </a>
           {links.linkedin.startsWith('http') ? (
-            <a className='button button-secondary' href={links.linkedin} target='_blank' rel='noreferrer'>
+            <a
+              className='button button-secondary'
+              href={links.linkedin}
+              target='_blank'
+              rel='noreferrer'
+              aria-label='LinkedIn profile (opens in a new tab)'
+            >
               LinkedIn
             </a>
           ) : (

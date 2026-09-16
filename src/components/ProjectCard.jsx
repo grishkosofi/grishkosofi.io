@@ -24,15 +24,21 @@ function ProjectCard({ project }) {
       </ul>
 
       <div className='project-links'>
-        <a
-          className='button button-secondary'
-          href={project.githubUrl}
-          target='_blank'
-          rel='noreferrer'
-          aria-label={`${project.title} GitHub repository`}
-        >
-          <GitHubIcon size={16} /> GitHub
-        </a>
+        {project.githubUrl.startsWith('http') ? (
+          <a
+            className='button button-secondary'
+            href={project.githubUrl}
+            target='_blank'
+            rel='noreferrer'
+            aria-label={`${project.title} GitHub repository`}
+          >
+            <GitHubIcon size={16} /> GitHub
+          </a>
+        ) : (
+          <p className='todo-pill' role='status'>
+            TODO: Add GitHub repository URL
+          </p>
+        )}
         {project.demoUrl && (
           <a
             className='button button-ghost'

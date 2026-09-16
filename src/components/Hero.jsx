@@ -1,6 +1,8 @@
 import { links, personalInfo } from '../config/personal'
 
 function Hero() {
+  const cvHref = `${import.meta.env.BASE_URL}${links.cvPath}`
+
   return (
     <section className='section hero' id='top'>
       <div className='container hero-grid'>
@@ -22,9 +24,15 @@ function Hero() {
             <a className='button button-secondary' href={links.github} target='_blank' rel='noreferrer'>
               GitHub
             </a>
-            <a className='button button-ghost' href={links.cvPath} download>
-              Download CV
-            </a>
+            {links.cvAvailable ? (
+              <a className='button button-ghost' href={cvHref} download>
+                Download CV
+              </a>
+            ) : (
+              <button type='button' className='button button-ghost button-disabled' disabled>
+                Download CV
+              </button>
+            )}
           </div>
         </div>
 

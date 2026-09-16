@@ -18,6 +18,11 @@ function Navbar({ theme, onToggleTheme }) {
     setOpen(false)
   }
 
+  const handleThemeToggle = () => {
+    onToggleTheme()
+    setOpen(false)
+  }
+
   return (
     <header className='site-header'>
       <nav className='navbar container' aria-label='Main navigation'>
@@ -49,7 +54,7 @@ function Navbar({ theme, onToggleTheme }) {
           <button
             type='button'
             className='theme-toggle'
-            onClick={onToggleTheme}
+            onClick={handleThemeToggle}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? 'Light' : 'Dark'}
@@ -83,7 +88,7 @@ function Navbar({ theme, onToggleTheme }) {
           <button
             type='button'
             className='theme-toggle'
-            onClick={onToggleTheme}
+            onClick={handleThemeToggle}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? 'Light' : 'Dark'}

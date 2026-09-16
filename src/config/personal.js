@@ -21,12 +21,6 @@ export const links = {
   github: 'https://github.com/grishkosofi',
   linkedin: 'TODO_ADD_LINKEDIN_URL',
   email: 'TODO_ADD_EMAIL_ADDRESS',
-  cvPath: '/cv/sofiia-grishko-cv.pdf',
-}
-
-export const seo = {
-  title: 'Sofiia Grishko | Software Engineering Portfolio',
-  description:
-    'Portfolio of Sofiia Grishko, a Software Engineering student based in Potsdam, Germany, showcasing projects in software development, algorithms, web, mobile and machine learning.',
-  url: 'https://grishkosofi.github.io',
+  cvPath: 'cv/sofiia-grishko-cv.pdf',
+  cvAvailable: false,
 }
