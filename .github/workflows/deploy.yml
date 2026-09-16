@@ -27,11 +27,11 @@ jobs:
       - name: Check whether this run targets the latest branch commit
         id: freshness
         run: |
-          branch_ref="refs/heads/${GITHUB_REF_NAME}"
-          current_sha="$(git ls-remote origin "${branch_ref}" | cut -f1)"
+          target_ref="${GITHUB_REF}"
+          current_sha="$(git ls-remote origin "${target_ref}" | cut -f1)"
 
           if [ -z "${current_sha}" ]; then
-            echo "Failed to resolve ${branch_ref} from origin."
+            echo "Failed to resolve ${target_ref} from origin."
             exit 1
           fi
 
@@ -39,7 +39,7 @@ jobs:
             echo "should_deploy=true" >> "${GITHUB_OUTPUT}"
           else
             echo "should_deploy=false" >> "${GITHUB_OUTPUT}"
-            echo "Skipping stale workflow run for ${GITHUB_SHA} because ${branch_ref} is now at ${current_sha}."
+            echo "Skipping stale workflow run for ${GITHUB_SHA} because ${target_ref} is now at ${current_sha}."
           fi
 
       - name: Setup Node.js
