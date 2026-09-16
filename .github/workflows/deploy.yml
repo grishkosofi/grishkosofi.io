@@ -30,6 +30,11 @@ jobs:
           branch_ref="refs/heads/${GITHUB_REF_NAME}"
           current_sha="$(git ls-remote origin "${branch_ref}" | cut -f1)"
 
+          if [ -z "${current_sha}" ]; then
+            echo "Failed to resolve ${branch_ref} from origin."
+            exit 1
+          fi
+
           if [ "${current_sha}" = "${GITHUB_SHA}" ]; then
             echo "should_deploy=true" >> "${GITHUB_OUTPUT}"
           else
