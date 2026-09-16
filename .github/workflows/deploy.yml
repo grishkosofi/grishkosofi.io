@@ -63,6 +63,7 @@ jobs:
           path: ./dist
 
   deploy:
+    needs: build
     if: needs.build.outputs.should_deploy == 'true'
     environment:
       name: github-pages
