@@ -3,7 +3,7 @@ name: Deploy portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -28,12 +28,15 @@ jobs:
           node-version: 20.19.0
           cache: npm
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         env:
-          VITE_BASE_PATH: /
+          VITE_BASE_PATH: /grishkosofi.io/
         run: npm run build
 
       - name: Upload artifact

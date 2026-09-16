@@ -45,16 +45,17 @@ The repository includes a GitHub Actions workflow at:
 
 Also ensure GitHub Pages is enabled in repository settings and configured to deploy from **GitHub Actions**.
 
-On every push to `main`, it:
+On every push to `master`, it:
 
 1. Installs dependencies
-2. Builds the Vite app
+2. Configures GitHub Pages metadata
+3. Builds the Vite app with the project-site base path
 3. Uploads the `dist` artifact
 4. Deploys to GitHub Pages
 
 Target production URL:
 
-`https://grishkosofi.github.io`
+`https://grishkosofi.github.io/grishkosofi.io/`
 
 ### Vite base path
 
@@ -63,7 +64,7 @@ The Vite `base` value is controlled by `VITE_BASE_PATH` (see `vite.config.js`).
 - For a root domain deployment (user/organization site), use: `/`
 - For a project-path deployment, use: `/<repository-name>/`
 
-The GitHub Actions workflow currently sets `VITE_BASE_PATH=/` for deployment to `grishkosofi.github.io`.
+This repository deploys as a project site, so the Vite base path should be `/grishkosofi.io/`.
 
 ## Content Configuration
 
@@ -73,4 +74,4 @@ Update portfolio content from centralized files:
 - Skills: `src/data/skills.js`
 - Projects: `src/data/projects.js`
 
-TODO placeholders are intentionally included in config/data files where personal URLs or contact values were not provided.
+Project entries should stay aligned with the current public repository state on `https://github.com/grishkosofi`.
