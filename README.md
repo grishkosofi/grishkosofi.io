@@ -50,8 +50,8 @@ On every push to `master`, it:
 1. Installs dependencies
 2. Configures GitHub Pages metadata
 3. Builds the Vite app with the project-site base path
-3. Uploads the `dist` artifact
-4. Deploys to GitHub Pages
+4. Uploads the `dist` artifact
+5. Deploys to GitHub Pages
 
 Target production URL:
 
