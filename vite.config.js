@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       {
         name: 'portfolio-site-url',
         transformIndexHtml(html) {
-          return html.replace('__SITE_URL__', siteUrl)
+          return html.replaceAll('__SITE_URL__', siteUrl)
         },
       },
     ],
