@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Github, Linkedin, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { links, personalInfo } from '../config/personal'
+import { GitHubIcon, LinkedInIcon } from './icons/SocialIcons'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -56,11 +57,11 @@ function Navbar({ theme, onToggleTheme }) {
 
           <div className='social-links'>
             <a href={links.github} target='_blank' rel='noreferrer' aria-label='GitHub profile'>
-              <Github size={18} />
+              <GitHubIcon size={18} />
             </a>
             {links.linkedin.startsWith('http') && (
               <a href={links.linkedin} target='_blank' rel='noreferrer' aria-label='LinkedIn profile'>
-                <Linkedin size={18} />
+                <LinkedInIcon size={18} />
               </a>
             )}
           </div>
@@ -90,11 +91,11 @@ function Navbar({ theme, onToggleTheme }) {
 
           <div className='social-links'>
             <a href={links.github} target='_blank' rel='noreferrer' aria-label='GitHub profile'>
-              <Github size={18} />
+              <GitHubIcon size={18} />
             </a>
             {links.linkedin.startsWith('http') && (
               <a href={links.linkedin} target='_blank' rel='noreferrer' aria-label='LinkedIn profile'>
-                <Linkedin size={18} />
+                <LinkedInIcon size={18} />
               </a>
             )}
           </div>

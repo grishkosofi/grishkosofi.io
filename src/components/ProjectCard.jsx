@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { GitHubIcon } from './icons/SocialIcons'
 
 function ProjectCard({ project }) {
   return (
@@ -30,7 +31,7 @@ function ProjectCard({ project }) {
           rel='noreferrer'
           aria-label={`${project.title} GitHub repository`}
         >
-          <Github size={16} /> GitHub
+          <GitHubIcon size={16} /> GitHub
         </a>
         {project.demoUrl && (
           <a
