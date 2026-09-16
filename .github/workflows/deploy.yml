@@ -24,11 +24,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check whether this run targets the latest branch commit
+      - name: Check whether this run targets the latest ref commit
         id: freshness
         run: |
-          target_ref="${GITHUB_REF}"
-          current_sha="$(git ls-remote origin "${target_ref}" | cut -f1)"
+          if [ "${GITHUB_REF_TYPE}" = "branch" ]; then
+            target_ref="refs/heads/${GITHUB_REF_NAME}"
+            current_sha="$(git ls-remote origin "${target_ref}" | cut -f1)"
+          elif [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            target_ref="refs/tags/${GITHUB_REF_NAME}"
+            resolved_refs="$(git ls-remote origin "${target_ref}" "${target_ref}^{}")"
+            current_sha="$(printf '%s\n' "${resolved_refs}" | awk '
+              $2 ~ /\^\{\}$/ { peeled = $1 }
+              plain == "" { plain = $1 }
+              END { print peeled ? peeled : plain }
+            ')"
+          else
+            echo "Unsupported ref type: ${GITHUB_REF_TYPE}"
+            exit 1
+          fi
 
           if [ -z "${current_sha}" ]; then
             echo "Failed to resolve ${target_ref} from origin."
