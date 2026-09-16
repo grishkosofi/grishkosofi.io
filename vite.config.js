@@ -1,9 +1,11 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
-const basePath = process.env.VITE_BASE_PATH || '/grishkosofi.io/'
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
 
-export default defineConfig({
-  base: basePath,
-  plugins: [react()],
+  return {
+    base: env.VITE_BASE_PATH || '/grishkosofi.io/',
+    plugins: [react()],
+  }
 })

@@ -49,7 +49,7 @@ On every push to `master`, it:
 
 1. Installs dependencies
 2. Configures GitHub Pages metadata
-3. Builds the Vite app with the project-site base path
+3. Builds the Vite app with the project-site base path from `.env.production`
 4. Uploads the `dist` artifact
 5. Deploys to GitHub Pages
 
@@ -64,7 +64,10 @@ The Vite `base` value is controlled by `VITE_BASE_PATH` (see `vite.config.js`).
 - For a root domain deployment (user/organization site), use: `/`
 - For a project-path deployment, use: `/<repository-name>/`
 
-This repository deploys as a project site, so the Vite base path should be `/grishkosofi.io/`.
+This repository deploys as a project site, so `.env.production` defines:
+
+- `VITE_BASE_PATH=/grishkosofi.io/`
+- `VITE_SITE_URL=https://grishkosofi.github.io/grishkosofi.io/`
 
 ## Content Configuration
 
