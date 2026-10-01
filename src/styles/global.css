@@ -471,6 +471,38 @@ h3 {
   padding-bottom: 4rem;
 }
 
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.contact-email:hover,
+.contact-email:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.contact-email > span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.contact-email-label {
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+.contact-email-address {
+  font-weight: 500;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.4rem 0 2.2rem;

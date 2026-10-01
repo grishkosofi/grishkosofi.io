@@ -34,14 +34,27 @@ function Contact() {
           ) : (
             <span className='todo-pill'>TODO: Add LinkedIn URL</span>
           )}
-          {links.email.includes('@') ? (
-            <a className='button button-secondary' href={`mailto:${links.email}`}>
-              <Mail size={16} /> Email
+          {links.leetcode.startsWith('http') ? (
+            <a
+              className='button button-secondary'
+              href={links.leetcode}
+              target='_blank'
+              rel='noreferrer'
+              aria-label='LeetCode profile (opens in a new tab)'
+            >
+              LeetCode
             </a>
           ) : (
-            <span className='todo-pill'>TODO: Add Email Address</span>
+            <span className='todo-pill'>TODO: Add LeetCode URL</span>
           )}
         </div>
+        <a className='contact-email' href={`mailto:${links.email}`}>
+          <Mail size={18} aria-hidden='true' />
+          <span>
+            <span className='contact-email-label'>Want to get in touch?</span>
+            <span className='contact-email-address'>{links.email}</span>
+          </span>
+        </a>
       </div>
     </section>
   )
