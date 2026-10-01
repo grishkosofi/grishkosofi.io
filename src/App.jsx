@@ -15,16 +15,30 @@ function App() {
     if (typeof window === 'undefined') {
       return 'dark'
     }
-    const storedTheme = window.localStorage.getItem('theme')
-    return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'dark'
+    try {
+      const storedTheme = window.localStorage.getItem('theme')
+      return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'dark'
+    } catch {
+      return 'dark'
+    }
   })
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    window.localStorage.setItem('theme', theme)
+    try {
+      window.localStorage.setItem('theme', theme)
+    } catch {
+      // Keep the selected theme for the current page even when storage is unavailable.
+    }
   }, [theme])
 
   useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal')
+    if (typeof IntersectionObserver === 'undefined') {
+      revealElements.forEach((element) => element.classList.add('is-visible'))
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +51,6 @@ function App() {
       { threshold: 0.15 },
     )
 
-    const revealElements = document.querySelectorAll('.reveal')
     revealElements.forEach((element) => observer.observe(element))
 
     return () => {
