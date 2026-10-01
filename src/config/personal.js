@@ -21,6 +21,6 @@ export const links = {
   github: 'https://github.com/grishkosofi',
   linkedin: 'TODO_ADD_LINKEDIN_URL',
   email: 'TODO_ADD_EMAIL_ADDRESS',
-  cvPath: 'cv/sofiia-grishko-cv.pdf',
-  cvAvailable: false,
+  cvPath: 'cv/mycv.pdf',
+  cvAvailable: true,
 }
