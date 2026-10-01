@@ -20,6 +20,7 @@ export const personalInfo = {
 export const links = {
   github: 'https://github.com/grishkosofi',
   linkedin: 'https://www.linkedin.com/in/sofiia-grishko-731861331',
+  leetcode: 'https://leetcode.com/u/grishkosofi/',
   email: 'n.grishkosofi@gmail.com',
   cvPath: 'cv/sofiia-grishko-cv.pdf',
   cvAvailable: false,
