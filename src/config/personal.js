@@ -22,6 +22,6 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/sofiia-grishko-731861331',
   leetcode: 'https://leetcode.com/u/grishkosofi/',
   email: 'n.grishkosofi@gmail.com',
-  cvPath: 'cv/sofiia-grishko-cv.pdf',
-  cvAvailable: false,
+  cvPath: 'cv/mycv.pdf',
+  cvAvailable: true,
 }
